@@ -5,10 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class MemberDAO {
+	
+	private SqlSession sqlSession;
+	private final String NAMESPACE = "com.iu.s3.member.memberDAO"
 	
 	public int memberUpdate(MemberDTO memberDTO)throws Exception{
 		//id를 제외하고 나머지 수정
